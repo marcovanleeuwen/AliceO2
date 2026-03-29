@@ -159,7 +159,7 @@ void ITOFLayer::createLayer(TGeoVolume* motherVolume)
       const double staveSizeY = mOuterRadius - mInnerRadius;                                                                                             // cm
       const double staveSizeZ = mZLength;                                                                                                                // cm
       const double deltaForTilt = 0.5 * (std::sin(TMath::DegToRad() * mTiltAngle) * staveSizeX + std::cos(TMath::DegToRad() * mTiltAngle) * staveSizeY); // we increase the size of the layer to account for the tilt of the staves
-      TGeoTube* layer = new TGeoTube(mInnerRadius - deltaForTilt, mOuterRadius + deltaForTilt, mZLength / 2);
+      TGeoTube* layer = new TGeoTube(mInnerRadius - deltaForTilt, mOuterRadius + deltaForTilt + 0.1, mZLength / 2 );
       TGeoVolume* layerVol = new TGeoVolume(mLayerName.c_str(), layer, medAir);
       setLayerStyle(layerVol);
 
@@ -291,7 +291,7 @@ void OTOFLayer::createLayer(TGeoVolume* motherVolume)
       const double staveSizeY = mOuterRadius - mInnerRadius;                                                                                             // cm
       const double staveSizeZ = mZLength;                                                                                                                // cm
       const double deltaForTilt = 0.5 * (std::sin(TMath::DegToRad() * mTiltAngle) * staveSizeX + std::cos(TMath::DegToRad() * mTiltAngle) * staveSizeY); // we increase the size of the layer to account for the tilt of the staves
-      TGeoTube* layer = new TGeoTube(mInnerRadius - deltaForTilt, mOuterRadius + deltaForTilt, mZLength / 2);
+      TGeoTube* layer = new TGeoTube(mInnerRadius - deltaForTilt, mOuterRadius + deltaForTilt + 0.1, mZLength / 2);
       TGeoVolume* layerVol = new TGeoVolume(mLayerName.c_str(), layer, medAir);
       setLayerStyle(layerVol);
 

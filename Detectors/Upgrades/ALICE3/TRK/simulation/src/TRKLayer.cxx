@@ -217,6 +217,7 @@ void TRKMLLayer::createLayer(TGeoVolume* motherVolume)
 {
   TGeoMedium* medAir = gGeoManager->GetMedium("TRK_AIR$");
   TGeoTube* layer = new TGeoTube(mInnerRadius - 0.333 * sLogicalVolumeThickness, mInnerRadius + 0.667 * sLogicalVolumeThickness, mLength / 2);
+  LOG(info) << "Create Layer " << mLayerName.c_str() << " inner " << mInnerRadius << " log vol thick " << sLogicalVolumeThickness;
   TGeoVolume* layerVol = new TGeoVolume(mLayerName.c_str(), layer, medAir);
   layerVol->SetLineColor(kYellow);
 
